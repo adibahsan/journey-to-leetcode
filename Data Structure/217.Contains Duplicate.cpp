@@ -6,7 +6,7 @@ using namespace std;
 class Solution
 {
 public:
-    bool containsDuplicate(vector<int>& nums)
+    bool containsDuplicateMap(vector<int>& nums)
     {
         map<long long int, long long int> counter;
         for(int i =0; i< nums.size(); i++)
@@ -18,6 +18,23 @@ public:
             }
 
             cout << "counter -- " << nums[i] << " --- -- " << counter[nums[i]] << endl;
+        }
+
+        return false;
+    }
+
+    bool containsDuplicate(vector<int>& nums)
+    {
+        int arr[nums.size()] = {0};
+        for(int i =0; i< nums.size(); i++)
+        {
+             arr[nums[i]]++;
+            if( arr[nums[i]] > 1)
+            {
+                return true;
+            }
+
+            cout << "counter -- " << nums[i] << " --- -- " << arr[nums[i]] << endl;
         }
 
         return false;
