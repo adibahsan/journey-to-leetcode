@@ -5,33 +5,38 @@ using namespace std;
 class Solution{
 
 public:
-    int twoSumSolver(vector<int> arr, int sum){
+vector<int> twoSum(vector<int>& nums, int target){
 
-        unordered_map<int, bool> tables;
+unordered_map<int, int> indexTables;
 
-        for(int i =0; i< arr.size(); i++){
-                int diff = sum - arr[i];
+for(int i =0; i< nums.size(); i++){
+    int diff = target - nums[i];
 
-            if(tables[diff]){
-                cout << "Found" <<endl;
-                cout << diff << " + " << arr[i] <<" = " << sum <<endl;
-                break;
-            }
-            else {
-                tables[arr[i]] = true;
-            }
-        }
+if(indexTables[diff]!= 0){
+        cout << "Found" <<endl;
+        cout << diff << " + " << nums[i] <<" = " << target <<endl;
+        cout << "index = " << indexTables[diff]-1 << " & " << i <<endl;
 
-        return 0;
-    }
+    vector<int> output = {indexTables[diff]-1, i};
+   return output;
+}
+else {
+        cout << "not found " << nums[i]   << endl;
+        indexTables[nums[i]] = i+1;
+}
+}
+return {};
+}
+
+
 };
 
 
 int main(){
-    Solution solution;
+Solution solution;
 
-    vector<int> a = {1,2,3,4,5,6};
-    int sum = 5;
-    solution.twoSumSolver(a, sum);
+vector<int> a = {1,2,3,4,5,6};
+int sum = 11;
+solution.twoSum(a, sum);
 
 }
