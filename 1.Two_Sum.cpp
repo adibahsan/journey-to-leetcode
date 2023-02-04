@@ -13,15 +13,14 @@ for(int i =0; i< nums.size(); i++){
     int diff = target - nums[i];
 
 if(indexTables[diff]!= 0){
-        cout << "Found" <<endl;
-        cout << diff << " + " << nums[i] <<" = " << target <<endl;
-        cout << "index = " << indexTables[diff]-1 << " & " << i <<endl;
-
+//        cout << "Found" <<endl;
+//        cout << diff << " + " << nums[i] <<" = " << target <<endl;
+//        cout << "index = " << indexTables[diff]-1 << " & " << i <<endl;
     vector<int> output = {indexTables[diff]-1, i};
    return output;
 }
 else {
-        cout << "not found " << nums[i]   << endl;
+//        cout << "not found " << nums[i]   << endl;
         indexTables[nums[i]] = i+1;
 }
 }
