@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#define MAX_COUNT 256
+#define MAX_COUNT 123
 class Solution {
 public:
     // using sorting
@@ -20,22 +20,26 @@ public:
     }
     // using array
     bool isAnagramArray(string s, string t) {
-        int sLen = s.length();
-        int tLen = t.length();
 
         int counter[MAX_COUNT] = {0};
 
-        if(sLen != tLen){
-            return false;
-        }
+//        int a = 'a';
+//        int b = 'z';
+//        cout << a -97 << b -97 << endl;
+        int i = 0;
 
-        for(int i =0; s[i] & t[i]; i++){
+        for( i =0; s[i] & t[i]; i++){
             counter[s[i]]++;
             counter[t[i]]--;
         }
 
+        // updated length logic
+        if (s[i] || t[i]) {
+            return false;
+        }
+
         for(int i =0; i< MAX_COUNT; i++){
-                cout << "s[i] " << counter[i] << endl;
+//                cout << "s[i] " << counter[i] << endl;
             if(counter[i] != 0) return false;
         }
 
@@ -46,7 +50,7 @@ public:
 
 int main(){
 Solution solution;
-string s1 = "car", s2 = "rax";
+string s1 = "car", s2 = "rac";
 cout << solution.isAnagramArray(s1, s2) << endl;
 
 }
